@@ -32,8 +32,8 @@ return new class extends Migration
             $table->char('fax',12)->nullable();
             $table->string('address',255);
             $table->string('address_short',255)->nullable();
-            $table->decimal('latitude',10,8);
-            $table->decimal('longitude',10,8);
+            $table->string('latitude',15);
+            $table->string('longitude',15);
             $table->string('plan_preference',10);
             $table->integer('leads');
             $table->string('business_status',50);

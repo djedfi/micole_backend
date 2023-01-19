@@ -19,9 +19,9 @@ class SchoolFactory extends Factory
         //llenar cada uno de los campos de la tabla School con datos mediante el paquete Faker
         return [
             //
-            'hs_id'                     => $this->create_id(66,8),
+            'hs_id'                     => $this->get_create_id(66,8),
             'director_id'               => $this->faker->randomNumber(5,true),
-            'mec_id'                    => $this->create_id(28,6),
+            'mec_id'                    => $this->get_create_id(28,6),
             'country_id'                => $this->faker->randomNumber(5,true),
             'region_id'                 => $this->faker->randomNumber(5,true),
             'city_id'                   => $this->faker->randomNumber(5,true),
@@ -52,23 +52,25 @@ class SchoolFactory extends Factory
     //Parametro 1: los numeros que iniciara el ID
     //Parametro 2: cantidad de numeros restantes
 
-    private function create_id($numeros_inicial,$total_numeros)
+    private function get_create_id($numeros_inicial,$total_numeros)
     {
         $id_tmp = $numeros_inicial.$this->faker->randomNumber($total_numeros,true);
         return $id_tmp;
     }
 
+    //Funcion para obtener plan refernce
     private function get_plan_reference()
     {
         $array_opciones = ['anual','trimestral','mensual','semanal'];
-        $total_opciones = count($array_opciones);
+        $total_opciones = count($array_opciones)-1;
         return $array_opciones[rand(0,$total_opciones)];
     }
 
+    //Funcion para obtener business status
     private function get_business_status()
     {
         $array_opciones = ['OPERATIONAL','CLOSED_PERMANENTLY'];
-        $total_opciones = count($array_opciones);
+        $total_opciones = count($array_opciones) -1;
         return $array_opciones[rand(0,$total_opciones)];
     }
 }
