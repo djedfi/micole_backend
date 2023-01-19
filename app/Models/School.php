@@ -9,7 +9,7 @@ class School extends Model
 {
     use HasFactory;
 
-    protected $table = 'school';
+    protected $table = 'schools';
 
     /**
      * The attributes that are mass assignable.
